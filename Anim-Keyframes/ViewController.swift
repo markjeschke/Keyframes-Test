@@ -29,14 +29,14 @@ class ViewController: UIViewController {
 
         sampleVectorLayer.frame = CGRect(x: shortSide / 4, y: longSide / 2 - shortSide / 4, width: shortSide / 2, height: shortSide / 2)
         
+        // Added repeatCount with a value of 1. But, it doesn't seem to affect its loop count, or stop it.
+        sampleVectorLayer.repeatCount = 1
+        
         // Attach the animation to the faceModel.
         sampleVectorLayer.faceModel = sampleVector!
         
         // Add the VectorLayer as a sublayer for the main view.
         self.view.layer.addSublayer(sampleVectorLayer)
-        
-        // Added repeatCount with a value of 1. But, it doesn't seem to affect its loop count, or stop it.
-        sampleVectorLayer.repeatCount = 1
         
         // Start the animation, which will loop by default.
         sampleVectorLayer.startAnimation()
