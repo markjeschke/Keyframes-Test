@@ -12,7 +12,57 @@
 		F70851DB1DED18B000D94CA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F70851D91DED18B000D94CA2 /* Main.storyboard */; };
 		F70851DD1DED18B000D94CA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F70851DC1DED18B000D94CA2 /* Assets.xcassets */; };
 		F70851E01DED18B000D94CA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F70851DE1DED18B000D94CA2 /* LaunchScreen.storyboard */; };
+		F7C098781DEDFD1D00E25CCE /* sample_logo.json in Resources */ = {isa = PBXBuildFile; fileRef = F7C098771DEDFD1D00E25CCE /* sample_logo.json */; };
+		F7C0987E1DEDFE6900E25CCE /* keyframes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C098691DEDF45D00E25CCE /* keyframes.framework */; };
+		F7C0987F1DEDFE6900E25CCE /* keyframes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F7C098691DEDF45D00E25CCE /* keyframes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F7C098AC1DEF72AA00E25CCE /* keyframes.json in Resources */ = {isa = PBXBuildFile; fileRef = F7C098AB1DEF72AA00E25CCE /* keyframes.json */; };
+		F7C098B21DEFB65D00E25CCE /* KFVectorExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C098B11DEFB65D00E25CCE /* KFVectorExtractor.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F7C098681DEDF45D00E25CCE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7C098161DEDF45D00E25CCE /* keyframes.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ADBA24B01D2C3C9400D2549E;
+			remoteInfo = keyframes;
+		};
+		F7C0986A1DEDF45D00E25CCE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7C098161DEDF45D00E25CCE /* keyframes.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AD46D2FB1D3041AD0008AF78;
+			remoteInfo = keyframesTests;
+		};
+		F7C0987B1DEDFE4E00E25CCE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7C098161DEDF45D00E25CCE /* keyframes.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = ADBA24AF1D2C3C9400D2549E;
+			remoteInfo = keyframes;
+		};
+		F7C098801DEDFE6900E25CCE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7C098161DEDF45D00E25CCE /* keyframes.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = ADBA24AF1D2C3C9400D2549E;
+			remoteInfo = keyframes;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F7C098821DEDFE6A00E25CCE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F7C0987F1DEDFE6900E25CCE /* keyframes.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F70851D21DED18B000D94CA2 /* Anim-Keyframes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anim-Keyframes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +72,11 @@
 		F70851DC1DED18B000D94CA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F70851DF1DED18B000D94CA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F70851E11DED18B000D94CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7C098161DEDF45D00E25CCE /* keyframes.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = keyframes.xcodeproj; sourceTree = "<group>"; };
+		F7C098731DEDFBF700E25CCE /* anim-keyframe-bridging-header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "anim-keyframe-bridging-header.h"; sourceTree = "<group>"; };
+		F7C098771DEDFD1D00E25CCE /* sample_logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample_logo.json; sourceTree = "<group>"; };
+		F7C098AB1DEF72AA00E25CCE /* keyframes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = keyframes.json; sourceTree = "<group>"; };
+		F7C098B11DEFB65D00E25CCE /* KFVectorExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KFVectorExtractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7C0987E1DEDFE6900E25CCE /* keyframes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +94,7 @@
 		F70851C91DED18B000D94CA2 = {
 			isa = PBXGroup;
 			children = (
+				F7C098161DEDF45D00E25CCE /* keyframes.xcodeproj */,
 				F70851D41DED18B000D94CA2 /* Anim-Keyframes */,
 				F70851D31DED18B000D94CA2 /* Products */,
 			);
@@ -56,12 +113,33 @@
 			children = (
 				F70851D51DED18B000D94CA2 /* AppDelegate.swift */,
 				F70851D71DED18B000D94CA2 /* ViewController.swift */,
+				F7C098B11DEFB65D00E25CCE /* KFVectorExtractor.swift */,
 				F70851D91DED18B000D94CA2 /* Main.storyboard */,
 				F70851DC1DED18B000D94CA2 /* Assets.xcassets */,
 				F70851DE1DED18B000D94CA2 /* LaunchScreen.storyboard */,
 				F70851E11DED18B000D94CA2 /* Info.plist */,
+				F7C0986E1DEDF70B00E25CCE /* Supporting Files */,
 			);
 			path = "Anim-Keyframes";
+			sourceTree = "<group>";
+		};
+		F7C098171DEDF45D00E25CCE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7C098691DEDF45D00E25CCE /* keyframes.framework */,
+				F7C0986B1DEDF45D00E25CCE /* keyframesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7C0986E1DEDF70B00E25CCE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F7C098731DEDFBF700E25CCE /* anim-keyframe-bridging-header.h */,
+				F7C098771DEDFD1D00E25CCE /* sample_logo.json */,
+				F7C098AB1DEF72AA00E25CCE /* keyframes.json */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,10 +152,13 @@
 				F70851CE1DED18B000D94CA2 /* Sources */,
 				F70851CF1DED18B000D94CA2 /* Frameworks */,
 				F70851D01DED18B000D94CA2 /* Resources */,
+				F7C098821DEDFE6A00E25CCE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F7C0987C1DEDFE4E00E25CCE /* PBXTargetDependency */,
+				F7C098811DEDFE6900E25CCE /* PBXTargetDependency */,
 			);
 			name = "Anim-Keyframes";
 			productName = "Anim-Keyframes";
@@ -112,6 +193,12 @@
 			mainGroup = F70851C91DED18B000D94CA2;
 			productRefGroup = F70851D31DED18B000D94CA2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F7C098171DEDF45D00E25CCE /* Products */;
+					ProjectRef = F7C098161DEDF45D00E25CCE /* keyframes.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F70851D11DED18B000D94CA2 /* Anim-Keyframes */,
@@ -119,13 +206,32 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		F7C098691DEDF45D00E25CCE /* keyframes.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = keyframes.framework;
+			remoteRef = F7C098681DEDF45D00E25CCE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F7C0986B1DEDF45D00E25CCE /* keyframesTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = keyframesTests.xctest;
+			remoteRef = F7C0986A1DEDF45D00E25CCE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		F70851D01DED18B000D94CA2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F70851E01DED18B000D94CA2 /* LaunchScreen.storyboard in Resources */,
+				F7C098AC1DEF72AA00E25CCE /* keyframes.json in Resources */,
 				F70851DD1DED18B000D94CA2 /* Assets.xcassets in Resources */,
+				F7C098781DEDFD1D00E25CCE /* sample_logo.json in Resources */,
 				F70851DB1DED18B000D94CA2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,10 +245,24 @@
 			files = (
 				F70851D81DED18B000D94CA2 /* ViewController.swift in Sources */,
 				F70851D61DED18B000D94CA2 /* AppDelegate.swift in Sources */,
+				F7C098B21DEFB65D00E25CCE /* KFVectorExtractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F7C0987C1DEDFE4E00E25CCE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = keyframes;
+			targetProxy = F7C0987B1DEDFE4E00E25CCE /* PBXContainerItemProxy */;
+		};
+		F7C098811DEDFE6900E25CCE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = keyframes;
+			targetProxy = F7C098801DEDFE6900E25CCE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F70851D91DED18B000D94CA2 /* Main.storyboard */ = {
@@ -209,6 +329,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "keyframes-bridging-header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -250,6 +371,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "keyframes-bridging-header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -261,9 +383,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JZRGG2W4BA;
 				INFOPLIST_FILE = "Anim-Keyframes/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.snagajob.Anim-Keyframes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Anim-Keyframes/anim-keyframe-bridging-header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -274,9 +398,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JZRGG2W4BA;
 				INFOPLIST_FILE = "Anim-Keyframes/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.snagajob.Anim-Keyframes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Anim-Keyframes/anim-keyframe-bridging-header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -300,6 +426,7 @@
 				F70851E61DED18B000D94CA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
