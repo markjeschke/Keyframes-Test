@@ -29,7 +29,7 @@ class ViewController: UIViewController {
 
         sampleVectorLayer.frame = CGRect(x: shortSide / 4, y: longSide / 2 - shortSide / 4, width: shortSide / 2, height: shortSide / 2)
         
-        // Added repeatCount with a value of 1. But, it doesn't seem to affect its loop count, or stop it.
+        // Added repeatCount with a value of 1.
         sampleVectorLayer.repeatCount = 1
         
         // Attach the animation to the faceModel.
