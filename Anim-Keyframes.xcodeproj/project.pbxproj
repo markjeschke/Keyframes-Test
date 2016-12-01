@@ -113,7 +113,7 @@
 			children = (
 				F70851D51DED18B000D94CA2 /* AppDelegate.swift */,
 				F70851D71DED18B000D94CA2 /* ViewController.swift */,
-				F7C098B11DEFB65D00E25CCE /* KFVectorExtractor.swift */,
+				F756E1401DF0D184002889A6 /* Classes */,
 				F70851D91DED18B000D94CA2 /* Main.storyboard */,
 				F70851DC1DED18B000D94CA2 /* Assets.xcassets */,
 				F70851DE1DED18B000D94CA2 /* LaunchScreen.storyboard */,
@@ -121,6 +121,14 @@
 				F7C0986E1DEDF70B00E25CCE /* Supporting Files */,
 			);
 			path = "Anim-Keyframes";
+			sourceTree = "<group>";
+		};
+		F756E1401DF0D184002889A6 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F7C098B11DEFB65D00E25CCE /* KFVectorExtractor.swift */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		F7C098171DEDF45D00E25CCE /* Products */ = {

@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         // Add the VectorLayer as a sublayer for the main view.
         self.view.layer.addSublayer(sampleVectorLayer)
         
-        // Added repeatCount with a value of 1. But, it doesn't seem to have any affect on the looping animation.
+        // Added repeatCount with a value of 1. But, it doesn't seem to affect its loop count, or stop it.
         sampleVectorLayer.repeatCount = 1
         
         // Start the animation, which will loop by default.
