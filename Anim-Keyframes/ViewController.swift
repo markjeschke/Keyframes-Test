@@ -13,23 +13,41 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let sampleVector : KFVector!
+        let jsonDataExtractor = JsonDataExtractor()
         
+        let shortSide = min(self.view.bounds.width, self.view.bounds.height)
+        let longSide = max(self.view.bounds.width, self.view.bounds.height)
+        
+        // Top Keyframe animated logo
+        let sampleLogoVector2 : KFVector!
+        
+        // Create animation from JSON date
         do {
-            sampleVector = try self.loadSampleVectorFromDisk()
+            sampleLogoVector2 = try jsonDataExtractor.loadVectorFromDisk(assetName: "sample_logo")
         } catch {
             print("Vector file could not be loaded, aborting")
             return
         }
         
-        let sampleVectorLayer : KFVectorLayer = KFVectorLayer()
+        let sampleLogoVectorLayer2 = KFVectorLayer()
+        sampleLogoVectorLayer2.frame = CGRect(x: shortSide / 4, y: 20, width: shortSide / 2, height: shortSide / 2)
+        sampleLogoVectorLayer2.repeatCount = 2
+        sampleLogoVectorLayer2.faceModel = sampleLogoVector2!
+        self.view.layer.addSublayer(sampleLogoVectorLayer2)
+        sampleLogoVectorLayer2.startAnimation()
         
-        let shortSide = min(self.view.bounds.width, self.view.bounds.height)
-        let longSide = max(self.view.bounds.width, self.view.bounds.height)
+        let sampleVector : KFVector!
+        do {
+            sampleVector = try jsonDataExtractor.loadVectorFromDisk(assetName: "keyframes")
+        } catch {
+            print("Vector file could not be loaded, aborting")
+            return
+        }
 
+        let sampleVectorLayer = KFVectorLayer()
         sampleVectorLayer.frame = CGRect(x: shortSide / 4, y: longSide / 2 - shortSide / 4, width: shortSide / 2, height: shortSide / 2)
         
-        // Added repeatCount with a value of 1.
+        // The repeatCount parameter *MUST* be declared prior to the faceModel, and not after. Otherwise, the animation will not stop. If you want the animation to repeat indefinitely, just comment the following line out.
         sampleVectorLayer.repeatCount = 1
         
         // Attach the animation to the faceModel.
@@ -41,19 +59,20 @@ class ViewController: UIViewController {
         // Start the animation, which will loop by default.
         sampleVectorLayer.startAnimation()
         
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func loadSampleVectorFromDisk() throws -> KFVector {
-        let filePath : String = Bundle(for: type(of: self)).path(forResource: "keyframes", ofType: "json")!
-        let data : Data = try String(contentsOfFile: filePath).data(using: .utf8)!
-        let sampleVectorDictionary : Dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+        // Bottom Keyframe animated logo
+        let sampleLogoVector : KFVector!
+        do {
+            sampleLogoVector = try jsonDataExtractor.loadVectorFromDisk(assetName: "sample_logo")
+        } catch {
+            print("Vector file could not be loaded, aborting")
+            return
+        }
+        let sampleLogoVectorLayer = KFVectorLayer()
+        sampleLogoVectorLayer.frame = CGRect(x: shortSide / 4, y: longSide - 180, width: shortSide / 2, height: shortSide / 2)
+        sampleLogoVectorLayer.faceModel = sampleLogoVector!
+        self.view.layer.addSublayer(sampleLogoVectorLayer)
+        sampleLogoVectorLayer.startAnimation()
         
-        return KFVectorFromDictionary(sampleVectorDictionary)
     }
 
 }

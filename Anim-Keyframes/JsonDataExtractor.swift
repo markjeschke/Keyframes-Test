@@ -1,5 +1,5 @@
 //
-//  KFVectorExtractor.swift
+//  JsonDataExtractor.swift
 //  Anim-Keyframes
 //
 //  Created by Mark Jeschke on 11/30/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KFVectorExtractor: KFVector {
+class JsonDataExtractor: KFVector {
     
     func loadVectorFromDisk(assetName:String) throws -> KFVector {
         let filePath : String = Bundle(for: type(of: self)).path(forResource: assetName, ofType: "json")!
