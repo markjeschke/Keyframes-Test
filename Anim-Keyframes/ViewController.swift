@@ -47,6 +47,9 @@ class ViewController: UIViewController {
         // Add the VectorLayer as a sublayer for the main view.
         self.view.layer.addSublayer(keyframeLogoVectorLayer)
         
+        // Start animation halfway through.
+        //keyframeLogoVectorLayer.seek(toProgress: 0.5) //<== Seek to Progress doesn't seem to work
+        
         // Start the animation, which will loop by default.
         keyframeLogoVectorLayer.startAnimation()
         
