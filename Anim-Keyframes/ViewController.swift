@@ -13,80 +13,83 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Create JSON data extractor object for reuse
-        let jsonDataExtractor = JsonDataExtractor()
-        
-        // Calculated dimensions, relating to the screen's dimensions
         let shortSide = min(self.view.bounds.width, self.view.bounds.height)
         let longSide = max(self.view.bounds.width, self.view.bounds.height)
         
-        ///=============== Animate Keyframe logo on the top to be played twice
+        // ===== Top Animation
+        let topKeyframeVector = keyframesLayerFromAsset(assetName: "sample_logo",
+                                                       repeatCount: 2,
+                                                       loopForever: false,
+                                                       x: shortSide / 4 + 25,
+                                                       y: 20,
+                                                       width: 100,
+                                                       height: 100)
+        // Add the animation layer to the view.
+        self.view.layer.addSublayer(topKeyframeVector)
         
-        // Top Keyframe animated logo
-        let keyframeLogoVector : KFVector!
+        // ===== Middle Animation
+        let sVector = keyframesLayerFromAsset(assetName: "keyframes",
+                                                       repeatCount: 3,
+                                                       loopForever: false,
+                                                       x: shortSide / 4,
+                                                       y: longSide / 2 - shortSide / 4,
+                                                       width: shortSide / 2,
+                                                       height: shortSide / 2)
+        // Add the animation layer to the view.
+        self.view.layer.addSublayer(sVector)
         
-        // Create animation from JSON vector file.
+        // ===== Bottom Animation
+        let bottomKeyframeVector = keyframesLayerFromAsset(assetName: "sample_logo",
+                                                       repeatCount: 0,
+                                                       loopForever: true,
+                                                       x: shortSide / 4 + 20,
+                                                       y: longSide - 140,
+                                                       width: 120,
+                                                       height: 120)
+        // Add the animation layer to the view.
+        self.view.layer.addSublayer(bottomKeyframeVector)
+        
+    }
+    
+    // ===== Extract JSON data
+    func loadVectorFromDisk(assetName:String) throws -> KFVector {
+        let filePath : String = Bundle(for: type(of: self)).path(forResource: assetName, ofType: "json")!
+        let data : Data = try String(contentsOfFile: filePath).data(using: .utf8)!
+        let vectorDictionary : Dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+        
+        return KFVectorFromDictionary(vectorDictionary)
+    }
+    
+    // ===== Call the animation layer and pass in parameters
+    func keyframesLayerFromAsset(assetName: String,
+                                 repeatCount: Float,
+                                 loopForever: Bool,
+                                 x: CGFloat,
+                                 y: CGFloat,
+                                 width: CGFloat,
+                                 height: CGFloat) -> KFVectorLayer {
+        
+        var myVector : KFVector!
         do {
-            keyframeLogoVector = try jsonDataExtractor.loadVectorFromDisk(assetName: "sample_logo")
+            myVector = try loadVectorFromDisk(assetName: assetName)
+            print("assetName: \(assetName)")
         } catch {
             print("Vector file could not be loaded, aborting")
-            return
         }
         
-        // Create vector layer
-        let keyframeLogoVectorLayer = KFVectorLayer()
+        let myVectorLayer = KFVectorLayer()
+        myVectorLayer.frame = CGRect(x: x, y: y, width: width, height: height)
         
-        keyframeLogoVectorLayer.frame = CGRect(x: shortSide / 4, y: 20, width: shortSide / 2, height: shortSide / 2)
-        
-        // The repeatCount parameter *MUST* be declared prior to the faceModel, and not after. Otherwise, the animation will not stop. If you want the animation to repeat indefinitely, just comment the following line out.
-        keyframeLogoVectorLayer.repeatCount = 2
-        
-        // Attach the animation to the faceModel.
-        keyframeLogoVectorLayer.faceModel = keyframeLogoVector!
-        
-        // Add the VectorLayer as a sublayer for the main view.
-        self.view.layer.addSublayer(keyframeLogoVectorLayer)
-        
-        // Start animation halfway through.
-        //keyframeLogoVectorLayer.seek(toProgress: 0.5) //<== Seek to Progress doesn't seem to work
-        
-        // Start the animation, which will loop by default.
-        keyframeLogoVectorLayer.startAnimation()
-        
-        ///=============== Animate "S" Letter to be played once
-        
-        let sLetterVector : KFVector!
-        do {
-            sLetterVector = try jsonDataExtractor.loadVectorFromDisk(assetName: "keyframes")
-        } catch {
-            print("Vector file could not be loaded, aborting")
-            return
+        // For some reason setting a repeatCount = 0 doesn't work.
+        if loopForever != true {
+            myVectorLayer.repeatCount = repeatCount
         }
-
-        let sLetterVectorLayer = KFVectorLayer()
-        sLetterVectorLayer.frame = CGRect(x: shortSide / 4, y: longSide / 2 - shortSide / 4, width: shortSide / 2, height: shortSide / 2)
-        sLetterVectorLayer.repeatCount = 1
-        sLetterVectorLayer.faceModel = sLetterVector!
-        self.view.layer.addSublayer(sLetterVectorLayer)
-        sLetterVectorLayer.startAnimation()
+        myVectorLayer.faceModel = myVector!
+        myVectorLayer.startAnimation()
         
-        ///=============== Animate Keyframe logo on the bottom to be played infinitely
+        print("repeatCount: \(repeatCount)\n-----")
         
-        // Bottom Keyframe animated logo
-        let sampleLogoVector : KFVector!
-        do {
-            sampleLogoVector = try jsonDataExtractor.loadVectorFromDisk(assetName: "sample_logo")
-        } catch {
-            print("Vector file could not be loaded, aborting")
-            return
-        }
-        let sampleLogoVectorLayer = KFVectorLayer()
-        sampleLogoVectorLayer.frame = CGRect(x: shortSide / 4, y: longSide - 180, width: shortSide / 2, height: shortSide / 2)
-        sLetterVectorLayer.repeatCount = 0
-        sampleLogoVectorLayer.faceModel = sampleLogoVector!
-        self.view.layer.addSublayer(sampleLogoVectorLayer)
-        sampleLogoVectorLayer.startAnimation()
-        
+        return myVectorLayer
     }
 
 }
