@@ -16,7 +16,6 @@
 		F7C0987E1DEDFE6900E25CCE /* keyframes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C098691DEDF45D00E25CCE /* keyframes.framework */; };
 		F7C0987F1DEDFE6900E25CCE /* keyframes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F7C098691DEDF45D00E25CCE /* keyframes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F7C098AC1DEF72AA00E25CCE /* keyframes.json in Resources */ = {isa = PBXBuildFile; fileRef = F7C098AB1DEF72AA00E25CCE /* keyframes.json */; };
-		F7C098B21DEFB65D00E25CCE /* JsonDataExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C098B11DEFB65D00E25CCE /* JsonDataExtractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +75,6 @@
 		F7C098731DEDFBF700E25CCE /* anim-keyframe-bridging-header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "anim-keyframe-bridging-header.h"; sourceTree = "<group>"; };
 		F7C098771DEDFD1D00E25CCE /* sample_logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample_logo.json; sourceTree = "<group>"; };
 		F7C098AB1DEF72AA00E25CCE /* keyframes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = keyframes.json; sourceTree = "<group>"; };
-		F7C098B11DEFB65D00E25CCE /* JsonDataExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonDataExtractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +111,6 @@
 			children = (
 				F70851D51DED18B000D94CA2 /* AppDelegate.swift */,
 				F70851D71DED18B000D94CA2 /* ViewController.swift */,
-				F756E13E1DF0D108002889A6 /* Classes */,
 				F70851D91DED18B000D94CA2 /* Main.storyboard */,
 				F70851DC1DED18B000D94CA2 /* Assets.xcassets */,
 				F70851DE1DED18B000D94CA2 /* LaunchScreen.storyboard */,
@@ -121,14 +118,6 @@
 				F7C0986E1DEDF70B00E25CCE /* Supporting Files */,
 			);
 			path = "Anim-Keyframes";
-			sourceTree = "<group>";
-		};
-		F756E13E1DF0D108002889A6 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				F7C098B11DEFB65D00E25CCE /* JsonDataExtractor.swift */,
-			);
-			name = Classes;
 			sourceTree = "<group>";
 		};
 		F7C098171DEDF45D00E25CCE /* Products */ = {
@@ -253,7 +242,6 @@
 			files = (
 				F70851D81DED18B000D94CA2 /* ViewController.swift in Sources */,
 				F70851D61DED18B000D94CA2 /* AppDelegate.swift in Sources */,
-				F7C098B21DEFB65D00E25CCE /* JsonDataExtractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

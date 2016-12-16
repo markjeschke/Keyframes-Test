@@ -19,35 +19,35 @@ class ViewController: UIViewController {
         // ===== Top Animation
         let topKeyframeVector = keyframesLayerFromAsset(assetName: "sample_logo",
                                                        repeatCount: 2,
-                                                       loopForever: false,
                                                        x: shortSide / 4 + 25,
                                                        y: 20,
                                                        width: 100,
                                                        height: 100)
         // Add the animation layer to the view.
         self.view.layer.addSublayer(topKeyframeVector)
+        topKeyframeVector.startAnimation()
         
         // ===== Middle Animation
         let sVector = keyframesLayerFromAsset(assetName: "keyframes",
                                                        repeatCount: 3,
-                                                       loopForever: false,
                                                        x: shortSide / 4,
                                                        y: longSide / 2 - shortSide / 4,
                                                        width: shortSide / 2,
                                                        height: shortSide / 2)
         // Add the animation layer to the view.
         self.view.layer.addSublayer(sVector)
+        sVector.startAnimation()
         
         // ===== Bottom Animation
         let bottomKeyframeVector = keyframesLayerFromAsset(assetName: "sample_logo",
-                                                       repeatCount: 0,
-                                                       loopForever: true,
+                                                       repeatCount: 1,
                                                        x: shortSide / 4 + 20,
                                                        y: longSide - 140,
                                                        width: 120,
                                                        height: 120)
         // Add the animation layer to the view.
         self.view.layer.addSublayer(bottomKeyframeVector)
+        bottomKeyframeVector.startAnimation()
         
     }
     
@@ -63,7 +63,6 @@ class ViewController: UIViewController {
     // ===== Call the animation layer and pass in parameters
     func keyframesLayerFromAsset(assetName: String,
                                  repeatCount: Float,
-                                 loopForever: Bool,
                                  x: CGFloat,
                                  y: CGFloat,
                                  width: CGFloat,
@@ -80,12 +79,11 @@ class ViewController: UIViewController {
         let myVectorLayer = KFVectorLayer()
         myVectorLayer.frame = CGRect(x: x, y: y, width: width, height: height)
         
-        // For some reason setting a repeatCount = 0 doesn't work.
-        if loopForever != true {
-            myVectorLayer.repeatCount = repeatCount
+        // For some reason setting a repeatCount = 0 doesn't work on its own.
+        if repeatCount != 0 {
+           myVectorLayer.repeatCount = repeatCount
         }
         myVectorLayer.faceModel = myVector!
-        myVectorLayer.startAnimation()
         
         print("repeatCount: \(repeatCount)\n-----")
         
